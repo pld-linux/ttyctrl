@@ -6,10 +6,8 @@ Summary(pl):	-
 Name:		ttyctrl
 Version:	2_00
 Release:	0.1
-License:	- (enter GPL/GPL v2/LGPL/BSD/BSD-like/other license name here)
-#Vendor:		-
+License:	GPL v2
 Group:		Applications
-#Icon:		-
 Source0:	http://dl.sourceforge.net/ttyctrl/tty_ctrl_%{version}.tgz
 # Source0-md5:	7ba345323d89833b18a4fbb47f6086ff
 Patch0:		%{name}-makefile.patch
