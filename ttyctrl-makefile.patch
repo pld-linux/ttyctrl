@@ -1,0 +1,62 @@
+--- tty_ctrl_2_00/makefile	2002-01-04 11:01:58.000000000 +0100
++++ makefile	2005-07-25 01:22:07.000000000 +0200
+@@ -5,23 +5,23 @@
+ 
+ INIT_D_PATH:=/etc/init.d
+ TTY_CTRL_PATH:=/etc/tty_ctrl
+-SHELL:=/bin/bash
+-install_deb: tty_control
+-	/bin/cp -R ./etc_tty_ctrl ${TTY_CTRL_PATH}
+-	/bin/mv ./etc_tty_ctrl ./install_etc_tty_ctrl
+-	/bin/cp tty_ctrl ${INIT_D_PATH}/tty_ctrl
+-	/bin/chmod u=rwx ${INIT_D_PATH}/tty_ctrl
+-	/bin/chown root.root ${TTY_CTRL_PATH}
+-	/bin/chmod u=rwx,g=rwx,o=-r ${TTY_CTRL_PATH}
++SHELL:=/bin/sh
++#install_deb: tty_control
++#	/bin/cp -R ./etc_tty_ctrl ${TTY_CTRL_PATH}
++#	/bin/mv ./etc_tty_ctrl ./install_etc_tty_ctrl
++#	/bin/cp tty_ctrl ${INIT_D_PATH}/tty_ctrl
++#	/bin/chmod u=rwx ${INIT_D_PATH}/tty_ctrl
++#	/bin/chown root.root ${TTY_CTRL_PATH}
++#	/bin/chmod u=rwx,g=rwx,o=-r ${TTY_CTRL_PATH}
+ 
+ #	cc -o tty_control tty_control.c
+-	/bin/cp tty_control /sbin
++#	/bin/cp tty_control /sbin
+ 
+ 
+ # Linkerteil
+ tty_control: tty_control.o sys_calls.o
+ 	cc -o tty_control tty_control.o sys_calls.o
+-	#/bin/cp tty_control /sbin
++#/bin/cp tty_control /sbin
+ 
+ # Kompilierung
+ tty_control.o: tty_control.c tty_control.h
+@@ -30,16 +30,16 @@
+ sys_calls.o: sys_calls.c sys_calls.h
+ 	cc -c sys_calls.c
+ 	
+-install: install_deb
++#install: install_deb
+ # Does not work with debian (does anyone know why ?)
+-	ln -s ../tty_ctrl ${INIT_D_PATH}/rc1.d/S21tty_ctrl
+-	/bin/chmod u=rwx ${INIT_D_PATH}/rc1.d/S21tty_ctrl
+-	ln -s ../tty_ctrl ${INIT_D_PATH}/rc2.d/S21tty_ctrl
+-	/bin/chmod u=rwx ${INIT_D_PATH}/rc2.d/S21tty_ctrl
+-	ln -s ../tty_ctrl ${INIT_D_PATH}/rc3.d/S21tty_ctrl
+-	/bin/chmod u=rwx ${INIT_D_PATH}/rc3.d/S21tty_ctrl
+-	ln -s ../tty_ctrl ${INIT_D_PATH}/rc5.d/S21tty_ctrl
+-	/bin/chmod u=rwx ${INIT_D_PATH}/rc5.d/S21tty_ctrl
++#	ln -s ../tty_ctrl ${INIT_D_PATH}/rc1.d/S21tty_ctrl
++#	/bin/chmod u=rwx ${INIT_D_PATH}/rc1.d/S21tty_ctrl
++#	ln -s ../tty_ctrl ${INIT_D_PATH}/rc2.d/S21tty_ctrl
++#	/bin/chmod u=rwx ${INIT_D_PATH}/rc2.d/S21tty_ctrl
++#	ln -s ../tty_ctrl ${INIT_D_PATH}/rc3.d/S21tty_ctrl
++#	/bin/chmod u=rwx ${INIT_D_PATH}/rc3.d/S21tty_ctrl
++#	ln -s ../tty_ctrl ${INIT_D_PATH}/rc5.d/S21tty_ctrl
++#	/bin/chmod u=rwx ${INIT_D_PATH}/rc5.d/S21tty_ctrl
+ 
+ remove:
+ 	/bin/rm ${INIT_D_PATH}/tty_ctrl
