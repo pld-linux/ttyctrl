@@ -12,6 +12,9 @@ Patch0:		%{name}-makefile.patch
 URL:		http://ttyctrl.sourceforge.net/
 #Obsoletes:	cpanel
 #from http://www.linux-magazin.de/ausgabe/2000/09/Seriell/seriell.html
+BuildRequires:	rpmbuild(macros) >= 1.268
+Requires(post,preun):	/sbin/chkconfig
+Requires:	rc-scripts
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -40,7 +43,7 @@ nie zajêty port szeregowy, trzy oporniki, siedem przycisków, 3 LED-y,
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT{/etc/{ttyctrl,rc.d/init.d},/sbin,%{_examplesdir}/%{name}-%{version}}
+install -d $RPM_BUILD_ROOT{/etc/{rc.d/init.d,ttyctrl},/sbin,%{_examplesdir}/%{name}-%{version}}
 
 install tty_control	$RPM_BUILD_ROOT/sbin
 install %{name_dash}	$RPM_BUILD_ROOT%{_sysconfdir}/rc.d/init.d
@@ -54,16 +57,16 @@ rm -rf $RPM_BUILD_ROOT
 
 %preun
 if [ "$1" = "0" ]; then
-	/etc/rc.d/init.d/%{name_dash} stop
+	%service %{name_dash} stop
 	/sbin/chkconfig --del %{name}
 fi
 
 %files
 %defattr(644,root,root,755)
-%doc info.txt readme 
+%doc info.txt readme
 %attr(755,root,root) /sbin/*
 %{_examplesdir}/%{name}-%{version}
 %config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/*
-%config(noreplace) %verify(not md5 mtime size) /etc/ttyctrl
+%config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/ttyctrl
 %attr(754,root,root) /etc/rc.d/init.d/%{name_dash}
 #%config(noreplace) %verify(not md5 mtime size) /etc/sysconfig/%{name_dash}
