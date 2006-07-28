@@ -17,6 +17,8 @@ Requires(post,preun):	/sbin/chkconfig
 Requires:	rc-scripts
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
+%define		_sbindir	/sbin
+
 %description
 When running a server on Linux without keyboard, mouse and monitor, it
 is sometimes necessary to excute administrative commands. Tty_ctrl
@@ -64,9 +66,8 @@ fi
 %files
 %defattr(644,root,root,755)
 %doc info.txt readme
-%attr(755,root,root) /sbin/*
+%attr(755,root,root) %{_sbindir}/*
 %{_examplesdir}/%{name}-%{version}
-%config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/*
 %config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/ttyctrl
 %attr(754,root,root) /etc/rc.d/init.d/%{name_dash}
 #%config(noreplace) %verify(not md5 mtime size) /etc/sysconfig/%{name_dash}
