@@ -1,6 +1,6 @@
 %define name_dash tty_ctrl
 Summary:	Executing commands through special serial line device
-Summary(pl.UTF-8):   Wykonywanie poleceń poprzez specjalne urządzenie podłączone do portu szeregowego
+Summary(pl.UTF-8):	Wykonywanie poleceń poprzez specjalne urządzenie podłączone do portu szeregowego
 Name:		ttyctrl
 Version:	2_00
 Release:	0.1
