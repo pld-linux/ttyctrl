@@ -1,6 +1,6 @@
 %define name_dash tty_ctrl
 Summary:	Executing commands through special serial line device
-Summary(pl):	Wykonywanie poleceñ poprzez specjalne urz±dzenie pod³±czone do portu szeregowego
+Summary(pl.UTF-8):   Wykonywanie poleceÅ„ poprzez specjalne urzÄ…dzenie podÅ‚Ä…czone do portu szeregowego
 Name:		ttyctrl
 Version:	2_00
 Release:	0.1
@@ -28,13 +28,13 @@ via status LEDs. You'll need a free serial line, three resistors, 7
 buttons, three LEDs, 6 diodes and of course a soldering pen to get
 this stuff together.
 
-%description -l pl
-Gdy u¿ywamy serwera linuksowego bez klawiatury, myszki i monitora,
-czasem zachodzi potrzeba wydania poleceñ administracyjnych. Tty_ctrl
-oferuje mo¿liwo¶æ wykonania 7 poleceñ na takim komputerze. Wyniki
-wykonania poleceñ s± sygnalizowane diodami LED. Potrzebne s± do tego:
-nie zajêty port szeregowy, trzy oporniki, siedem przycisków, 3 LED-y,
-6 diod i oczywi¶cie lutownica, aby to wszystko po³±czyæ.
+%description -l pl.UTF-8
+Gdy uÅ¼ywamy serwera linuksowego bez klawiatury, myszki i monitora,
+czasem zachodzi potrzeba wydania poleceÅ„ administracyjnych. Tty_ctrl
+oferuje moÅ¼liwoÅ›Ä‡ wykonania 7 poleceÅ„ na takim komputerze. Wyniki
+wykonania poleceÅ„ sÄ… sygnalizowane diodami LED. Potrzebne sÄ… do tego:
+nie zajÄ™ty port szeregowy, trzy oporniki, siedem przyciskÃ³w, 3 LED-y,
+6 diod i oczywiÅ›cie lutownica, aby to wszystko poÅ‚Ä…czyÄ‡.
 
 %prep
 %setup -q -n %{name_dash}_%{version}
