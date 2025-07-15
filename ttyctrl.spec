@@ -38,7 +38,7 @@ nie zajęty port szeregowy, trzy oporniki, siedem przycisków, 3 LED-y,
 
 %prep
 %setup -q -n %{name_dash}_%{version}
-%patch0 -p0
+%patch -P0 -p0
 
 %build
 %{__make}
